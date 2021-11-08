@@ -17,6 +17,7 @@ jest.mock('util/auth', () => ({
 
 describe('Employee list any user tests', () => {
 
+    //ok
     test('should render all employees', async () => {
 
         render(
@@ -56,7 +57,7 @@ describe('Employee list ADMIN tests', () => {
     beforeEach(() => {
         when(hasAnyRoles).calledWith(['ROLE_ADMIN']).mockReturnValue(true);
     });
-
+    //OK
     test('should render create button', async () => {
 
         render(
@@ -69,7 +70,7 @@ describe('Employee list ADMIN tests', () => {
             const name0 = screen.getByText(getEmployessResponse.content[0].name);
             expect(name0).toBeInTheDocument();
         });
-        
+
         const createButton = screen.getByText(/adicionar/i);
         expect(createButton).toBeInTheDocument();
     });
@@ -84,7 +85,7 @@ describe('Employee list NOT ADMIN tests', () => {
     beforeEach(() => {
         when(hasAnyRoles).calledWith(['ROLE_ADMIN']).mockReturnValue(false);
     });
-
+    //OK
     test('should NOT render create button', async () => {
 
         render(
@@ -97,7 +98,7 @@ describe('Employee list NOT ADMIN tests', () => {
             const name0 = screen.getByText(getEmployessResponse.content[0].name);
             expect(name0).toBeInTheDocument();
         });
-        
+
         const createButton = screen.queryByText(/adicionar/i);
         expect(createButton).not.toBeInTheDocument();
     });

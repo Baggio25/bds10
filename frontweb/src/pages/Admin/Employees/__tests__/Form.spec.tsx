@@ -21,7 +21,7 @@ describe('Employee form create tests', () => {
                 <Form />
             </Router>
         );
-    
+
         const nameInput = screen.getByTestId("name");
         const emailInput = screen.getByTestId("email");
         const categoriesInput = screen.getByLabelText("Departamento");
@@ -30,7 +30,7 @@ describe('Employee form create tests', () => {
         userEvent.type(nameInput, 'Abel');
         userEvent.type(emailInput, 'abel@gmail.com');
 
-        const submitButton = screen.getByRole('button', { name: /salvar/i})
+        const submitButton = screen.getByRole('button', { name: /salvar/i })
         userEvent.click(submitButton);
 
         await waitFor(() => {
@@ -41,6 +41,7 @@ describe('Employee form create tests', () => {
         expect(history.location.pathname).toEqual('/admin/employees');
     });
 
+    //ok
     test('should show 3 error messages when just clicking submit', async () => {
 
         render(
@@ -48,8 +49,8 @@ describe('Employee form create tests', () => {
                 <Form />
             </Router>
         );
-    
-        const submitButton = screen.getByRole('button', { name: /salvar/i})
+
+        const submitButton = screen.getByRole('button', { name: /salvar/i })
         userEvent.click(submitButton);
 
         await waitFor(() => {
@@ -58,6 +59,7 @@ describe('Employee form create tests', () => {
         });
     });
 
+    //ok
     test('should validate email syntax', async () => {
 
         render(
@@ -65,11 +67,11 @@ describe('Employee form create tests', () => {
                 <Form />
             </Router>
         );
-    
+
         const emailInput = screen.getByTestId("email");
         userEvent.type(emailInput, 'abel@gmail.');
 
-        const submitButton = screen.getByRole('button', { name: /salvar/i})
+        const submitButton = screen.getByRole('button', { name: /salvar/i })
         userEvent.click(submitButton);
 
         await waitFor(() => {
@@ -78,6 +80,7 @@ describe('Employee form create tests', () => {
         });
     });
 
+    //ok
     test('should clear error messages when filling out the form', async () => {
 
         render(
@@ -85,8 +88,8 @@ describe('Employee form create tests', () => {
                 <Form />
             </Router>
         );
-    
-        const submitButton = screen.getByRole('button', { name: /salvar/i})
+
+        const submitButton = screen.getByRole('button', { name: /salvar/i })
         userEvent.click(submitButton);
 
         await waitFor(() => {
@@ -108,6 +111,7 @@ describe('Employee form create tests', () => {
         });
     });
 
+    //ok
     test('should redirect when canceling', async () => {
 
         render(
@@ -115,8 +119,8 @@ describe('Employee form create tests', () => {
                 <Form />
             </Router>
         );
-    
-        const cancelButton = screen.getByRole('button', { name: /cancelar/i})
+
+        const cancelButton = screen.getByRole('button', { name: /cancelar/i })
         userEvent.click(cancelButton);
 
         await waitFor(() => {
